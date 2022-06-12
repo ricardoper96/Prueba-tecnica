@@ -18,6 +18,6 @@ Route::get('/', function () {
 });
 Route::resource('libros' , \App\Http\Controllers\LibroController::class);
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

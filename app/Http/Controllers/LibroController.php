@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateLibroRequest;
 use App\Http\Services\LibroService;
+use App\Models\Autor;
+use App\Models\Editorial;
 use App\Models\Libro;
+use App\Models\Tema;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -36,7 +39,11 @@ class LibroController extends Controller
      */
     public function create()
     {
-        //
+        $autores = Autor::all();
+        $editoriales= Editorial::all();
+        $temas = Tema::all();
+
+        return view('Libros.create', compact('autores','editoriales','temas') );
     }
 
     /**
@@ -91,12 +98,12 @@ class LibroController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $idLibro
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idLibro)
     {
-        $Libro= $this->libroService->deleteLibro($id);
+        $Libro= $this->libroService->deleteLibro($idLibro);
         return response()->json($Libro,Response::HTTP_OK);
 
     }

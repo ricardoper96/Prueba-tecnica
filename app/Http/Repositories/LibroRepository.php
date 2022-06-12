@@ -57,9 +57,9 @@ class LibroRepository extends Repository implements LibroService
         return $libro;
     }
 
-    public function deleteLibro(int $id)
+    public function deleteLibro(int $idLibro)
     {
-        $libro = $this->findInstance($id);
+        $libro = $this->model->where('idLibro',$idLibro)->first();
         if(!empty($libro)){
             $libro->delete();
         }

@@ -9,7 +9,7 @@ class Libro extends BaseModel
 {
     use HasFactory;
     protected $table = 'Libro';
-    protected $fillable = ['ISBN' , 'Titulo' , 'NumeroEjemplares' , 'idAutor' , 'idEditorial' , 'idTema'];
+    protected $fillable = ['idLibro','ISBN' , 'Titulo' , 'NumeroEjemplares' , 'idAutor' , 'idEditorial' , 'idTema'];
 
     public function Autor(){
         return $this->hasOne(Autor::class, 'idAutor','idAutor');

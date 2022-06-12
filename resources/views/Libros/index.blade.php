@@ -1,4 +1,4 @@
-@extends('layouts.app-master')
+@extends('layouts.app')
 
 @section('content')
     <div class="bg-light p-4 rounded">
@@ -47,10 +47,12 @@
             @endforeach
             </tbody>
         </table>
-
-        <div class="d-flex">
+        <div class="container">
+        <div class="d-flex" style="justify-content: center;" >
             {!! $libros->links() !!}
         </div>
+        </div>
+
 
     </div>
 @endsection
